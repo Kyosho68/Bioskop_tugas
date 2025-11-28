@@ -13,6 +13,8 @@ if ($password != $confirm) {
           </script>";
     exit();
 }
+
+$password = password_hash($password, PASSWORD_DEFAULT);
 $sql = "INSERT INTO user (username, password, role) 
         VALUES ('$username', '$password', 'USER')";
 

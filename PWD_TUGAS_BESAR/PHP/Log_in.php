@@ -12,10 +12,8 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
-    // Verify password
-    if ($password == $row['password']) {
-
-        // Save login session
+    
+    if (password_verify($password, $row['password'])) {
         $_SESSION['username'] = $row['username'];
         $_SESSION['role'] = $row['role'];
 
