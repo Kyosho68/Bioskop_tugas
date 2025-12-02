@@ -29,13 +29,11 @@ if ($action === 'create' && $_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 if ($action === 'edit' && isset($_GET['id'])) {
-    // tampilkan simple form edit (redirect ke movies.php dengan param?) Untuk ringkas, kita lakukan update langsung via POST 'update'
     $id = (int)$_GET['id'];
     $stmt = $pdo->prepare("SELECT * FROM movies WHERE id = ?");
     $stmt->execute([$id]);
     $movie = $stmt->fetch();
     if (!$movie) { header('Location: movies.php'); exit; }
-    // tampilkan form edit
     ?>
     <!doctype html>
     <html><head><meta charset="utf-8"><title>Edit Film</title><link rel="stylesheet" href="../assets/css/style.css"></head><body>
@@ -81,6 +79,5 @@ if ($action === 'update' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-// default redirect
 header('Location: movies.php');
 exit;
