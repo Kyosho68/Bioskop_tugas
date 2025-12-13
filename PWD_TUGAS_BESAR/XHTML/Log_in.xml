@@ -3,23 +3,37 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN" lang="EN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../frontend_Bioskop/assets/css/style.css" />
     <title>Log In BiosKop</title>
   </head>
   <body>
-    <h1>Log In Bioskop</h1>
-    <form action="../PHP/Log_in.php" method="post">
-        <li><strong><label for="nama">UserName</label></strong></li>
-        <td><input type="text" id="nama" name="nama" size="30" /></td>
+  <header>
+  <h1>Bioskop Modern</h1>
+</header>
 
-        <li><strong><label for="pass1">Password</label></strong></li>
-        <td><input type="password" id="pass1" name="pass1" size="30" /></td>
+<div class="container">
+  <h2>Daftar Akun</h2>
+
+  
+  <form action="../PHP/Log_in.php" method="post">
+        <label for="nama">UserName</label>
+        <input type="text" id="nama" name="nama" size="30" placeholder="Masukkan username / email" />
+
+        <label for="pass1">Password</label>
+        <input type="password" id="pass1" name="pass1" size="30" placeholder="Masukkan password" />
 
         <div class="submit-section">
             <input type="submit" id="simpan" name="simpan" value="Log in" />
         </div>
+
+
+        <button type="button" class="btn" onclick="window.location.href='Sign_in.xml'">Create Account</button>
     </form>
 
-    <button type="button" onclick="window.location.href='Sign_in.xml'">Create Account</button>
+    
+
+</div>
+    
 
   </body>
 </html> 

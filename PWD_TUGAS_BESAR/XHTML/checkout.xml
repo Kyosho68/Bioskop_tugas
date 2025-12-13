@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN" lang="EN">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../frontend_Bioskop/assets/css/style.css" />
+  <title>Checkout</title>
+</head>
+<body>
+  <header>
+    <h1>Bioskop Modern</h1>
+  </header>
+
+  <div class="container">
+    <h2>Konfirmasi Pemesanan</h2>
+
+    <div class="checkout-container">
+      <div class="checkout-summary" id="checkoutSummary">
+        <!-- Diisi JavaScript -->
+      </div>
+
+      <div class="payment-section">
+        <h3>Metode Pembayaran</h3>
+        <div class="payment-methods">
+          <label class="payment-method">
+            <input type="radio" name="payment" value="qris" checked="checked" />
+            <span>QRIS</span>
+          </label>
+          <label class="payment-method">
+            <input type="radio" name="payment" value="ewallet" />
+            <span>E-Wallet</span>
+          </label>
+          <label class="payment-method">
+            <input type="radio" name="payment" value="bank" />
+            <span>Transfer Bank</span>
+          </label>
+        </div>
+
+        <button class="btn btn-primary" id="btnBayar">Bayar Sekarang</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../frontend_Bioskop/assets/js/checkout.js"></script>
+</body>
+</html>

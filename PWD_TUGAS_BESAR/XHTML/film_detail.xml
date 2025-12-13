@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN" lang="EN">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../frontend_Bioskop/assets/css/style.css" />
+  <title>Detail Film</title>
+</head>
+<body>
+  <header>
+    <h1>Bioskop Modern</h1>
+    <nav>
+      <a href="home_screen.xml">Home</a>
+      <a href="profil.xml">Profil</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="film-detail" id="filmDetail">
+      <!-- Diisi oleh JavaScript -->
+    </div>
+
+    <div class="jadwal-section">
+      <h2>Pilih Jadwal Tayang</h2>
+      <div id="jadwalList"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+  //<![CDATA[
+  (function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const filmId = urlParams.get('id');
+
+    if (!filmId) {
+      alert('ID Film tidak ditemukan!');
+      window.location.href = 'home_screen.xml';
+      return;
+    }
+
+    // Fetch detail film
+    fetch('../PHP/fetch_data_film.php')
+      .then(r => r.json())
+      .then(data => {
+        const film = data.find(f => f.id == filmId);
+        if (!film) {
+          alert('Film tidak ditemukan!');
+          return;
+        }
+
+        document.getElementById('filmDetail').innerHTML = `
+          <img src="${film.poster}" class="poster" alt="${film.judul}" />
+          <div class="info">
+            <h1>${film.judul}</h1>
+            <p><strong>Harga:</strong> Rp ${parseInt(film.harga).toLocaleString('id-ID')}</p>
+            <p><strong>Sinopsis:</strong></p>
+            <p>${film.sinopsis}</p>
+          </div>
+        `;
+      });
+
+    // Fetch jadwal
+    fetch('../PHP/fetch_data_jadwal.php?id_film=' + filmId)
+      .then(r => r.json())
+      .then(data => {
+        const container = document.getElementById('jadwalList');
+        if (data.length === 0) {
+          container.innerHTML = '<p>Belum ada jadwal tayang.</p>';
+          return;
+        }
+
+        container.innerHTML = data.map(jadwal => `
+          <div class="jadwal-item">
+            <p><strong>Tanggal:</strong> ${jadwal.jadwal_p}</p>
+            <p><strong>Kursi Tersedia:</strong> ${jadwal.jumlah}</p>
+            <a href="pilih_kursi.xml?id_penayangan=${jadwal.id}&id_film=${filmId}" class="btn">Pilih Kursi</a>
+          </div>
+        `).join('');
+      });
+  })();
+  //]]>
+  </script>
+</body>
+</html>

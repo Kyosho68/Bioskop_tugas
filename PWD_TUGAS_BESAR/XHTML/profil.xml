@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN" lang="EN">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../frontend_Bioskop/assets/css/style.css" />
+  <title>Profil Saya</title>
+</head>
+<body>
+  <header>
+    <h1>Bioskop Modern</h1>
+    <nav>
+      <a href="home_screen.xml">Home</a>
+      <a href="../PHP/logout.php" onclick="logout(); return false;">Logout</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Profil Saya</h2>
+
+    <div class="profile-container">
+      <!-- Foto Profil -->
+      <div class="profile-photo">
+        <img id="fotoProfil" src="../frontend_Bioskop/uploads/default-avatar.png" alt="Foto Profil" />
+        <form id="formFoto" enctype="multipart/form-data">
+          <input type="file" id="inputFoto" name="foto" accept="image/*" style="display: none;" />
+          <button type="button" class="btn" onclick="document.getElementById('inputFoto').click()">
+            Ganti Foto
+          </button>
+        </form>
+      </div>
+
+      <!-- Data Profil -->
+     <div class="profile-data">
+        <form id="formProfil"  action="../PHP/fetch_data_user.php" method="post">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" value="" />
+          </div>
+
+          <div class="form-group">
+             <label for="email">Email</label>
+            <input type="email" id="email" name="email" value="" />
+          </div>
+
+          <button type="submit" id="edit" name="edit" class="btn btn-primary" value="edit">Update Profil</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Riwayat Pemesanan -->
+    <div class="history-section">
+      <h3>Riwayat Pemesanan</h3>
+      <div id="historyList">
+        <p>Fitur coming soon...</p>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="../frontend_Bioskop/assets/js/data_user.js"></script>
+</body>
+</html>

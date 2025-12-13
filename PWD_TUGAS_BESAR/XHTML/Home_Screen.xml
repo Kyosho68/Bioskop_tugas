@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN" lang="EN">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../frontend_Bioskop/assets/css/style.css" />
+  <title>Home_Screen</title>
+  <style type="text/css">
+    .promo-item { margin-bottom: 20px; }
+    .promo-item img { width:250px; border-radius:10px; display:block; }
+  </style>
+</head>
+<body>
+  <header>
+  <h1>Home Screen</h1>
+  
+  <a href="profil.xml" >
+    <div id="profil" ></div>
+    </a>
+  </header>
+  <div class= "container">
+  <h3>Promo</h3>
+  
+  <div id="promoContainer"></div>
+  
+    
+  </div>
+  <div class="container">
+  <h3>Film Akan Tayang</h3>
+  
+  <div id="filmContainer"></div>
+  
+  </div>
+
+  
+
+
+  <!-- Load script at end so DOM is ready. Adjust the path if necessary. -->
+  <script type="text/javascript" src="../frontend_Bioskop/assets/js/promo.js"></script>
+  <script type="text/javascript" src="../frontend_Bioskop/assets/js/film.js"></script>
+  <script type="text/javascript" src="../frontend_Bioskop/assets/js/data_user.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN" lang="EN">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../frontend_Bioskop/assets/css/style.css" />
+  <title>E-Ticket</title>
+  <style type="text/css">
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white; }
+    }
+  </style>
+</head>
+<body>
+  <div class="no-print">
+    <header>
+      <h1>Bioskop Modern</h1>
+    </header>
+  </div>
+
+  <div class="container">
+    <div class="no-print" style="text-align: center; margin: 20px 0;">
+      <button class="btn" onclick="window.print()">🖨️ Cetak Tiket</button>
+      <button class="btn" onclick="window.location.href='home_screen.xml'">Kembali ke Home</button>
+    </div>
+
+    <div class="ticket-container" id="ticketContainer">
+      <!-- Diisi JavaScript -->
+    </div>
+  </div>
+
+  <script type="text/javascript">
+  //<![CDATA[
+  (function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const kode = urlParams.get('kode');
+
+    if (!kode) {
+      alert('Kode tiket tidak ditemukan!');
+      window.location.href = 'home_screen.xml';
+      return;
+    }
+
+    fetch('../PHP/cetak_tiket.php?kode=' + kode)
+      .then(r => r.json())
+      .then(data => {
+        if (data.error) {
+          alert(data.error);
+          window.location.href = 'home_screen.xml';
+          return;
+        }
+
+        const kursiList = data.kursi.join(', ');
+        const tanggal = new Date(data.jadwal_penayangan).toLocaleDateString('id-ID', {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+
+        document.getElementById('ticketContainer').innerHTML = `
+          <div class="ticket">
+            <div class="ticket-header">
+              <h1>🎬 E-TICKET</h1>
+              <p>Tunjukkan tiket ini saat masuk bioskop</p>
+            </div>
+
+            <div class="ticket-body">
+              <div class="ticket-info">
+                <img src="${data.poster}" alt="${data.judul}" class="ticket-poster" />
+                <div class="ticket-details">
+                  <h2>${data.judul}</h2>
+                  <p><strong>Tanggal:</strong> ${tanggal}</p>
+                  <p><strong>Kursi:</strong> ${kursiList}</p>
+                  <p><strong>Nama:</strong> ${data.username}</p>
+                  <p><strong>Email:</strong> ${data.email}</p>
+                </div>
+              </div>
+
+              <div class="ticket-code">
+                <h3>Kode Tiket</h3>
+                <div class="code">${data.kode_tiket}</div>
+              </div>
+
+              <div class="ticket-price">
+                <p><strong>Total Harga:</strong></p>
+                <p class="price">Rp ${parseInt(data.total_harga).toLocaleString('id-ID')}</p>
+              </div>
+            </div>
+
+            <div class="ticket-footer">
+              <p>Terima kasih telah memesan tiket!</p>
+              <p>Harap datang 15 menit sebelum waktu tayang</p>
+            </div>
+          </div>
+        `;
+      })
+      .catch(err => {
+        alert('Gagal memuat tiket: ' + err.message);
+      });
+  })();
+  //]]>
+  </script>
+</body>
+</html>

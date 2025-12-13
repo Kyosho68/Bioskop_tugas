@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN" lang="EN">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../frontend_Bioskop/assets/css/style.css" />
+  <title>Home_Screen</title>
+  <style type="text/css">
+    .promo-item { margin-bottom: 20px; }
+    .promo-item img { width:250px; border-radius:10px; display:block; }
+  </style>
+</head>
+<body>
+  <header>
+  <h1>ADMIN</h1>
+  </header>
+
+    <h2>Promo</h2>
+    
+        <h3>Create Promo</h3>
+        <form action="../PHP/fetch_data_promo.php" method="post">
+            <label for="nama">nama promo</label>
+            <input type="text" id="nama" name="nama" size="30" placeholder="Masukkan nama promo" />
+
+            <label for="link_img">Link Gambar Promo</label>
+            <input type="text" id="link_img" name="link_img" size="30" placeholder="Masukkan link gambar promo" />
+
+            <div class="submit-section ">
+                <input type="submit" id="buat" name="buat" value="buat" />
+            </div>
+        </form>
+        <h3>Edit / Delete Promo</h3>
+        <form action="../PHP/fetch_data_promo.php" method="post">
+            <select id="listPromo">
+                <option value="">--Pilih Promo--</option>
+            </select>
+
+            <input type="hidden" id="promo_id" name="promo_id"  />
+
+            <label for="promo_n">nama promo</label>
+            <input type="text" id="promo_n" name="promo_n" size="30" placeholder="" />
+
+            <label for="link">Link Gambar Promo</label>
+            <input type="text" id="link" name="link" size="30" placeholder="" />
+
+            <div class="submit-section">
+                <input type="submit" id="edit" name="edit" value="edit" />
+            </div>
+
+            <div class="submit-section">
+                <input type="submit" id="hapus" name="hapus" value="hapus" />
+            </div>
+        </form>
+    
+    <h2>Film</h2>
+
+   
+        <h3>Create Film</h3>
+         <form action="../PHP/fetch_data_film.php" method="post">
+            <label for="nama">nama film</label>
+            <input type="text" id="nama" name="nama" size="30" placeholder="Masukkan nama film" />
+
+            <label for="sinopsis">Sinopsis</label>
+            <input type="text" id="sinopsis" name="sinopsis" size="30" placeholder="Masukkan sinopsis film" />
+
+            <label for="harga">Harga</label>
+            <input type="text" id="harga" name="harga" size="30" placeholder="Masukkan harga film" />
+
+            <label for="link_img">Link Gambar Film</label>
+            <input type="text" id="link_img" name="link_img" size="30" placeholder="Masukkan link gambar film" />
+
+            <div class="submit-section ">
+                <input type="submit" id="buat" name="buat" value="buat" />
+            </div>
+        </form>
+        <h3>Edit Film</h3>
+        <form action="../PHP/fetch_data_film.php" method="post">
+            <select id="listFilm">
+                <option value="">--Pilih Film--</option>
+            </select>
+
+            <input type="hidden" id="film_id" name="film_id"  />
+            <label for="film_n">judul film</label>
+            <input type="text" id="film_n" name="film_n" size="30" placeholder="" />
+
+            <label for="sinopsis">Sinopsis</label>
+            <input type="text" id="sinopsis_n" name="sinopsis_n" size="30" placeholder="" />
+
+            <label for="harga">Harga</label>
+            <input type="text" id="harga_n" name="harga_n" size="30" placeholder="" />
+
+            <label for="link">Link Gambar Film</label>
+            <input type="text" id="link_n" name="link_n" size="30" placeholder="" />
+
+            <div class="submit-section">
+                <input type="submit" id="edit" name="edit" value="edit" />
+            </div>
+
+            <div class="submit-section">
+                <input type="submit" id="hapus" name="hapus" value="hapus" />
+            </div>
+        </form>
+            <h3>buat Jadwal</h3>
+                <form action="../PHP/fetch_data_jadwal.php" method="post">
+                <input type="hidden" id="film_id_h2" name="film_id_h2"  />
+                <label for="jadwal">Tanngal dan waktu</label>
+                <input type="text" id="jadwal" name="jadwal" size="30" placeholder="yyyy-mm-dd hh:mm:ss" />
+
+                <label for="jumlah_kursi">jumlah kursi ayng tersedia</label>
+                <input type="text" id="jumlah_kursi" name="jumlah_kursi" size="30" placeholder="Masukkan jumlah kursi yang tersedia" />
+
+                <div class="submit-section ">
+                    <input type="submit" id="buat" name="buat" value="buat" />
+                </div>
+            </form>
+
+            <h3>Edit Jadwal</h3>
+            <form action="../PHP/fetch_data_jadwal.php" method="post">
+                <select id="listjadwal">
+                    <option value="">--Pilih Jadwal--</option>
+                </select>
+
+                <input type="hidden" id="film_id_n2" name="film_id_n2" />
+                <input type="hidden" id="id_tayang" name="id_tayang"  />
+                
+                <label for="jadwal_n">Tanngal dan waktu</label>
+                <input type="text" id="jadwal_n" name="jadwal_n" size="30" placeholder="yyyy-mm-dd hh:mm:ss" />
+
+                <label for="jumlah_kursi_n">jumlah kursi ayng tersedia</label>
+                <input type="text" id="jumlah_kursi_n" name="jumlah_kursi_n" size="30" placeholder="Masukkan jumlah kursi yang tersedia" />
+
+                <div class="submit-section">
+                    <input type="submit" id="edit" name="edit" value="edit" />
+                </div>
+
+                <div class="submit-section">
+                    <input type="submit" id="hapus" name="hapus" value="hapus" />
+                </div>
+            </form>
+            
+        
+        
+
+
+<script type="text/javascript" src="../frontend_Bioskop/assets/js/list_Promo.js"></script>
+<script type="text/javascript" src="../frontend_Bioskop/assets/js/list_film.js"></script>
+<script type="text/javascript" src="../frontend_Bioskop/assets/js/list_jadwal.js"></script>
+</body>
+</html>

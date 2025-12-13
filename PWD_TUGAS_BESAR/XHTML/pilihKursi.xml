@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN" lang="EN">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../frontend_Bioskop/assets/css/style.css" />
+  <title>Pilih Kursi</title>
+</head>
+<body>
+  <header>
+    <h1>Bioskop Modern</h1>
+  </header>
+
+  <div class="container">
+    <h2>Pilih Kursi Anda</h2>
+
+    <!-- Screen -->
+    <div class="screen">
+      <div class="screen-line"></div>
+      <p>LAYAR</p>
+    </div>
+
+    <!-- Seat Grid -->
+    <div class="seat-grid" id="seatGrid">
+      <!-- Diisi JavaScript -->
+    </div>
+
+    <!-- Legend -->
+    <div class="legend">
+      <div class="legend-item">
+        <div class="seat tersedia"></div>
+        <span>Tersedia</span>
+      </div>
+      <div class="legend-item">
+        <div class="seat selected"></div>
+        <span>Dipilih</span>
+      </div>
+      <div class="legend-item">
+        <div class="seat booked"></div>
+        <span>Dipesan</span>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="summary" id="summary" style="display: none;">
+      <h3>Ringkasan Pemesanan</h3>
+      <p><strong>Kursi Dipilih:</strong> <span id="selectedSeats">-</span></p>
+      <p><strong>Jumlah:</strong> <span id="seatCount">0</span> kursi</p>
+      <p><strong>Total Harga:</strong> Rp <span id="totalPrice">0</span></p>
+      <button class="btn" id="btnCheckout">Lanjut ke Pembayaran</button>
+    </div>
+  </div>
+
+  <script src="../frontend_Bioskop/assets/js/kursi.js"></script>
+</body>
+</html>
