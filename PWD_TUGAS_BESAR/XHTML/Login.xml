@@ -27,7 +27,7 @@
         </div>
 
 
-        <button type="button" class="btn" onclick="window.location.href='Sign_in.xml'">Create Account</button>
+        <button type="button" class="btn" onclick="window.location.href='index.xml'">Create Account</button>
     </form>
 
     
@@ -37,3 +37,4 @@
 
   </body>
 </html> 
+
