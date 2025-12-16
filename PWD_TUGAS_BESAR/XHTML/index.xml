@@ -32,7 +32,7 @@
         <div class="submit-section">
             <input type="submit" id="simpan" name="simpan" value="Sign in" />
         </div>
-        <button type="button" class="btn" onclick="window.location.href='log_in.xml'">Go to Login</button>
+        <button type="button" class="btn" onclick="window.location.href='Login.xml'">Go to Login</button>
     </form>
 
 
@@ -44,3 +44,4 @@
 
   </body>
 </html> 
+
